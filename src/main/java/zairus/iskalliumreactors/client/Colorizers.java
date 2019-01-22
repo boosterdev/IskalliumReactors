@@ -23,7 +23,7 @@ public class Colorizers
 			}
 		};
 	}
-	
+
 	public static IBlockColor getBlockGray()
 	{
 		return (state, world, pos, tintIndex) ->
@@ -31,7 +31,7 @@ public class Colorizers
 			return 0x457c9f;
 		};
 	}
-	
+
 	public static final IBlockColor BLOCK_LEAVES = getBlockLeaves(-1);
 	public static final IBlockColor BLOCK_GRAY = getBlockGray();
 }

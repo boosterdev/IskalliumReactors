@@ -32,33 +32,33 @@ public class BlockIskallium extends BlockBreakable
 		this.setTickRandomly(true);
 		this.setHardness(0.5F);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer()
 	{
 		return BlockRenderLayer.TRANSLUCENT;
 	}
-	
+
 	@Override
 	public float getSlipperiness(IBlockState state, IBlockAccess world, BlockPos pos, @Nullable Entity entity)
 	{
 		return 0.98F;
 	}
-	
+
 	@Override
 	public void randomTick(World world, BlockPos pos, IBlockState state, Random rand)
 	{
 		super.randomTick(world, pos, state, rand);
-		
+
 		BlockPos targetPos = pos.add(2 - rand.nextInt(5), 2 - rand.nextInt(5), 2 - rand.nextInt(5));
-		
+
 		if (world.getBlockState(targetPos).getBlock() == Blocks.STONE)
 			world.setBlockState(targetPos, Blocks.COBBLESTONE.getDefaultState());
 		else if (world.getBlockState(targetPos) == Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.DIORITE))
 			world.setBlockToAir(targetPos);
 	}
-	
+
 	@Override
 	public void onFallenUpon(World world, BlockPos pos, Entity entity, float fallDistance)
 	{
@@ -71,7 +71,7 @@ public class BlockIskallium extends BlockBreakable
 			entity.fall(fallDistance, 0.0F);
 		}
 	}
-	
+
 	@Override
 	public void onLanded(World world, Entity entity)
 	{
@@ -82,7 +82,7 @@ public class BlockIskallium extends BlockBreakable
 		else if (entity.motionY < 0.0D)
 		{
 			entity.motionY = -entity.motionY;
-			
+
 			if (!(entity instanceof EntityLivingBase))
 			{
 				entity.motionY *= 0.8D;

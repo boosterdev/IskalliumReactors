@@ -20,13 +20,13 @@ public class BlockIRPowerTap extends Block implements ITileEntityProvider, IBloc
 		this.setHardness(1.5F);
 		this.setResistance(2000.0F);
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta)
 	{
 		return new TileEntityIRPowerTap();
 	}
-	
+
 	@Override
 	public void registerTileEntity()
 	{

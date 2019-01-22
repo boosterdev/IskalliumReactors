@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"normal": { "model": "iskalliumreactors:steel_casing" }
-	}
+  "variants": {
+    "normal": {
+      "model": "iskalliumreactors:steel_casing"
+    }
+  }
 }

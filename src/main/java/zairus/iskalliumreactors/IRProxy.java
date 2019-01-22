@@ -10,17 +10,17 @@ public class IRProxy
 	{
 		//Register entities
 	}
-	
+
 	public void init(FMLInitializationEvent e)
 	{
 		;
 	}
-	
+
 	public void postInit(FMLPostInitializationEvent e)
 	{
 		;
 	}
-	
+
 	public void initBuiltinShapes()
 	{
 		;

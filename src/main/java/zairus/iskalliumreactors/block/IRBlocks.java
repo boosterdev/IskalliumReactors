@@ -42,9 +42,9 @@ public class IRBlocks
 	public static final Block STEEL_CONTROLLER;
 	@ObjectHolder(IRBlock.STEEL_POWERTAP_ID)
 	public static final Block STEEL_POWERTAP;
-	
+
 	private static final List<Block> BLOCKS = new ArrayList<Block>();
-	
+
 	static
 	{
 		ISKALLIUM = initBlock(new BlockIskallium(), IRBlock.ISKALLIUM_ID);
@@ -54,12 +54,12 @@ public class IRBlocks
 		STEEL_CONTROLLER = initBlock(new BlockIRController(), IRBlock.STEEL_CONTROLLER_ID);
 		STEEL_POWERTAP = initBlock(new BlockIRPowerTap(), IRBlock.STEEL_POWERTAP_ID);
 	}
-	
+
 	public static void initialize()
 	{
 		;
 	}
-	
+
 	private static Block initBlock(Block block, String id)
 	{
 		block.setRegistryName(new ResourceLocation(IRConstants.MOD_ID, id));
@@ -67,7 +67,7 @@ public class IRBlocks
 		BLOCKS.add(block);
 		return block;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public static void registerModels()
 	{
@@ -76,56 +76,56 @@ public class IRBlocks
 			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(IRConstants.MOD_ID + ":" + block.getUnlocalizedName().substring(5), "inventory"));
 		}
 	}
-	
+
 	@Mod.EventBusSubscriber(modid = IRConstants.MOD_ID)
 	public static class BlockRegistry
 	{
 		public static final Set<ItemBlock> ITEM_BLOCKS = new HashSet<ItemBlock>();
-		
+
 		@SubscribeEvent
 		public static void newRegistry(final RegistryEvent.NewRegistry event)
 		{
 			;
 		}
-		
+
 		@SubscribeEvent
 		public static void register(final RegistryEvent.Register<Block> event)
 		{
 			final IForgeRegistry<Block> registry = event.getRegistry();
-			
+
 			registry.registerAll(BLOCKS.toArray(new Block[] { }));
 		}
-		
+
 		@SubscribeEvent
 		public static void registerItemBlocks(final RegistryEvent.Register<Item> event)
 		{
 			final IForgeRegistry<Item> registry = event.getRegistry();
-			
+
 			for (final Block block : BLOCKS)
 			{
 				final ResourceLocation registryName = Preconditions.checkNotNull(block.getRegistryName(), "Block %s has null registry name", block);
 				ItemBlock item = new ItemBlock(block);
 				registry.register(item.setRegistryName(registryName));
-				
+
 				if (block instanceof IBlockTileEntity)
 				{
 					((IBlockTileEntity)block).registerTileEntity();
 				}
-				
+
 				ITEM_BLOCKS.add(item);
 			}
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public static void initClient()
 	{
 		BlockColors blockColors = Minecraft.getMinecraft().getBlockColors();
 		ItemColors itemColors = Minecraft.getMinecraft().getItemColors();
-		
+
 		registerColors(blockColors, itemColors, Colorizers.BLOCK_LEAVES, new Block[] { });
 	}
-	
+
 	private static void registerColors(BlockColors blockColors, ItemColors itemColors, IBlockColor color, Block... blocks)
 	{
 		blockColors.registerBlockColorHandler(color, blocks);

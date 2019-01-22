@@ -20,13 +20,13 @@ public class BlockIRController extends Block implements ITileEntityProvider, IBl
 		this.setHardness(1.5F);
 		this.setResistance(2000.0F);
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta)
 	{
 		return new TileEntityIRController();
 	}
-	
+
 	@Override
 	public void registerTileEntity()
 	{

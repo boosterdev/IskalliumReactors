@@ -27,47 +27,47 @@ public class IRProxyClient extends IRProxy
 	public void preInit(FMLPreInitializationEvent e)
 	{
 		super.preInit(e);
-		
+
 		//Regisgter entity renderer
 	}
-	
+
 	@Override
 	public void init(FMLInitializationEvent e)
 	{
 		super.init(e);
 	}
-	
+
 	@Override
 	public void postInit(FMLPostInitializationEvent e)
 	{
 		super.postInit(e);
 	}
-	
+
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event)
 	{
 		IRItems.registerModels();
 		IRBlocks.registerModels();
 	}
-	
+
 	public void registerModel(Item item, int meta, String name)
 	{
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
 		ModelResourceLocation modelResourceLocation = new ModelResourceLocation(IRConstants.MOD_ID + ":" + name, "inventory");
-		
+
 		renderItem.getItemModelMesher().register(item, meta, modelResourceLocation);
-		
+
 		if (meta == 0)
 			ModelBakery.registerItemVariants(item, new ResourceLocation(IRConstants.MOD_ID, name));
 	}
-	
+
 	@Override
 	public void initBuiltinShapes()
 	{
 		MinecraftForge.EVENT_BUS.register(this);
-		
+
 		BlockModelShapes shapes = Minecraft.getMinecraft().getBlockRendererDispatcher().getBlockModelShapes();
-		
+
 		shapes.registerBuiltInBlocks(new Block[] { });
 	}
 }

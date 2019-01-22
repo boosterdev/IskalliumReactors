@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "normal": { "model": "iskalliumreactors:iskallium_glass" }
+  "variants": {
+    "normal": {
+      "model": "iskalliumreactors:iskallium_glass"
     }
+  }
 }

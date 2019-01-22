@@ -11,7 +11,7 @@ public class IRBlock extends Block
 	public static final String STEEL_CASING_ID = "steel_casing";
 	public static final String STEEL_CONTROLLER_ID = "steel_controller";
 	public static final String STEEL_POWERTAP_ID = "steel_powertap";
-	
+
 	public IRBlock(Material material)
 	{
 		super(material);
