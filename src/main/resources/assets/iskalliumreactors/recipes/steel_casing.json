@@ -18,8 +18,8 @@
       "ore": "ingotSteel"
     },
     {
-      "type": "forge:ore_dict",
-      "ore": "ingotSteel"
+      "item": "iskalliumreactors:iskallium_essence",
+      "data": 0
     },
     {
       "type": "forge:ore_dict",
